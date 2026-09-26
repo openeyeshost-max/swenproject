@@ -1,0 +1,24 @@
+android {
+    // ... existing config ...
+    
+    signingConfigs {
+        create("release") {
+            storeFile = file("keystore.jks")
+            storePassword = "hotelmanager@123"
+            keyAlias = "hotel_key"
+            keyPassword = "hotelmanager@123"
+        }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            signingConfig = signingConfigs.getByName("release")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+}
