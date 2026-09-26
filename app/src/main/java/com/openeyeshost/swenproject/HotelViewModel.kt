@@ -4,17 +4,6 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-data class AppUiState(
-    val currentRole: StaffRole = StaffRole.ADMIN,
-    val staffList: List<Staff> = MockData.staffList,
-    val menuItems: List<MenuItem> = MockData.menuItems,
-    val orders: List<Order> = MockData.orders,
-    val rooms: List<Room> = MockData.rooms,
-    val logs: List<ActivityLog> = MockData.logs,
-    val hotelSettings: HotelSettings = MockData.hotelSettings,
-    val selectedStaff: Staff = MockData.staffList.first()
-)
-
 class HotelViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(AppUiState())
     val uiState: StateFlow<AppUiState> = _uiState

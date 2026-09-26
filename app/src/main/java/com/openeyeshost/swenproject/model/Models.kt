@@ -3,18 +3,15 @@ package com.openeyeshost.swenproject
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Analytics
-import androidx.compose.material.icons.filled.Assignment
 import androidx.compose.material.icons.filled.BedroomBaby
 import androidx.compose.material.icons.filled.Fastfood
 import androidx.compose.material.icons.filled.Group
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material.icons.filled.Receipt
+import androidx.compose.material.icons.filled.RestaurantMenu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.ShoppingCart
-import androidx.compose.material.icons.filled.Storefront
 import androidx.compose.material.icons.filled.SupervisorAccount
-import androidx.compose.material.icons.filled.TableRestaurant
 import androidx.compose.ui.graphics.vector.ImageVector
 
 enum class StaffRole(val label: String) {
@@ -78,6 +75,17 @@ data class HotelSettings(
     val gstin: String = "08ABCDE1234F1Z5",
     val taxPercent: Double = 5.0,
     val serviceChargePercent: Double = 10.0
+)
+
+data class AppUiState(
+    val currentRole: StaffRole = StaffRole.ADMIN,
+    val staffList: List<Staff> = MockData.staffList,
+    val menuItems: List<MenuItem> = MockData.menuItems,
+    val orders: List<Order> = MockData.orders,
+    val rooms: List<Room> = MockData.rooms,
+    val logs: List<ActivityLog> = MockData.logs,
+    val hotelSettings: HotelSettings = MockData.hotelSettings,
+    val selectedStaff: Staff = MockData.staffList.first()
 )
 
 object MockData {
